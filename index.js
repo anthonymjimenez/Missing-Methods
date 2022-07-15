@@ -1,4 +1,11 @@
 // lodash doc  https://lodash.com/docs/2.4.2#difference
+//_.fromPairs(pairs)
+//this method returns an object composed from key-value pairs.
+// use: useful for creating lookup objects for optimization
+
+// .range
+// use: Useful for quickly iterating over a range of numbers or letters without having to create array
+// example: quickly create a range of numbers to shuffle through
 
 // .none
 // returns true if all elements in array fail test implemented by callback function, otherwise returns false;
@@ -17,8 +24,10 @@ const none = (array, fn) => {
 
 // .union first show solution with array and .includes then optimize with new Set() -> .add array elements one at a time and check with .has
 // take n number of arrays and creates an array of unique values in order
+// use: useful for taking multiple arrays and spreading into one array of unique values
 
-// .range
+//// .difference
+//Creates an array of array values not included in the other given arrays
 
 //.intersection
 
@@ -62,9 +71,11 @@ const _intersectionWithReduce = (...arrays) => {
 
 console.log(
   _intersectionWithReduce(
+    [3, 3, 3, 3, 4, 3],
     [1, 2, 4, 4, 3, 3],
     [2, 3, 3, 4, 4],
-    [45, 3, 3, 5, 4, 4],
-    [3, 3, 3, 3, 4, 3]
+    [45, 3, 3, 5, 4, 4]
   ) // output: [3,3,4]
 );
+
+// .shuffle
