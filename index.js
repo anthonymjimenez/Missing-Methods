@@ -15,6 +15,8 @@ const fromPairs = (pairs) => {
 
   return keyValueObj;
 };
+
+exports.fromPairs = fromPairs;
 //.toPairs() method is used to create an array of own enumerable string key-value pairs for an object
 // useful for converting objects to easily iterable arrays that have access to array methods
 const toPairs = (pairs) => {
@@ -24,33 +26,9 @@ const toPairs = (pairs) => {
   }
   return arrayPairs;
 };
-// console.log(
-//   toPairs(
-//     fromPairs([
-//       ["x", 1],
-//       ["y", 2],
-//       ["z", 3],
-//     ])
-//   )
-// );
-let userRevenue = {
-  augustBalance: 500,
-  julyBalance: 300,
-  juneBalance: 200,
-  mayBalance: 100,
-  aprilBalance: 700,
-};
-// example : take a revenue  object -> convert to array(toPairs) -> sort in ascending order -> convert back to object(fromPairs) of sorted revenues
-let grabUserInfo = (userObject) => {
-  let convertedArray = toPairs(userObject); // convert object to array of arrays
-  let sortedArray = convertedArray.sort(function (a, b) {
-    return b[1] - a[1];
-  }); // sort in ascending order
-  return fromPairs(sortedArray); //return newly sorted object
-};
 
-let sortedRevenueObject = grabUserInfo(userRevenue);
-console.log(sortedRevenueObject);
+exports.toPairs = toPairs;
+
 // _.toPairs
 
 // .range
@@ -61,8 +39,6 @@ console.log(sortedRevenueObject);
 // .shuffle
 // example
 // isEven = (n) => n % 2;
-
-// example: create range of numbers -> shuffle -> return number;
 
 // .union first show solution with array and .includes then optimize with new Set() -> .add array elements one at a time and check with .has
 // take n number of arrays and creates an array of unique values
@@ -109,7 +85,6 @@ const _intersectionWithReduce = (...arrays) => {
   // process continues until all arrays are checked
 };
 
-// example: Was a student present every day of the year? Check the intersection of daily attendance.
 console.log(
   _intersectionWithReduce(
     [3, 3, 3, 3, 4, 3],
