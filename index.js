@@ -12,15 +12,6 @@
 // .shuffle
 // example
 // isEven = (n) => n % 2;
-const none = (array, fn) => {
-  let allFailed = true;
-  for (let i = 0; array.length > i; i++) {
-    if (fn(array[i])) {
-      allFailed = false;
-    }
-  }
-  return allFailed;
-};
 
 // .union first show solution with array and .includes then optimize with new Set() -> .add array elements one at a time and check with .has
 // take n number of arrays and creates an array of unique values in order
@@ -83,3 +74,13 @@ console.log(
 
 // .none
 // returns true if all elements in array fail test implemented by callback function, otherwise returns false;
+
+const none = (array, fn) => {
+  let allFailed = true;
+  for (let i = 0; array.length > i; i++) {
+    if (fn(array[i])) {
+      allFailed = false;
+    }
+  }
+  return allFailed;
+};
