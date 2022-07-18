@@ -1,5 +1,6 @@
 // lodash doc  https://lodash.com/docs/2.4.2#difference
-//_.fromPairs(pairs)
+
+//_.fromPairs(pairs) / _.toPairs
 //this method returns an object composed from key-value pairs.
 // use: useful for creating lookup objects for optimization
 
@@ -7,9 +8,8 @@
 // use: Useful for quickly iterating over a range of numbers or letters without having to create array
 // example: quickly create a range of numbers to shuffle through
 
-// .none
-// returns true if all elements in array fail test implemented by callback function, otherwise returns false;
-
+//
+// .shuffle
 // example
 // isEven = (n) => n % 2;
 const none = (array, fn) => {
@@ -25,9 +25,6 @@ const none = (array, fn) => {
 // .union first show solution with array and .includes then optimize with new Set() -> .add array elements one at a time and check with .has
 // take n number of arrays and creates an array of unique values in order
 // use: useful for taking multiple arrays and spreading into one array of unique values
-
-//// .difference
-//Creates an array of array values not included in the other given arrays
 
 //.intersection
 
@@ -78,4 +75,11 @@ console.log(
   ) // output: [3,3,4]
 );
 
-// .shuffle
+//possible part 2
+//
+
+// .difference
+//Creates an array of array values not included in the other given arrays
+
+// .none
+// returns true if all elements in array fail test implemented by callback function, otherwise returns false;
