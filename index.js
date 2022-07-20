@@ -67,7 +67,9 @@ const intersectionWithReduce = (...arrays) => {
 //   )
 // );
 
-const _intersectionWithReduce = (...arrays) => {
+const intersection = (...arrays) => {
+  // using rest operator to accept all arguments and contain in array
+  console.log(arrays);
   const reducer = (accumulator, currentArray) => {
     return currentArray.filter((currentArrayItem) => {
       if (accumulator.includes(currentArrayItem)) {
@@ -85,14 +87,7 @@ const _intersectionWithReduce = (...arrays) => {
   // process continues until all arrays are checked
 };
 
-console.log(
-  _intersectionWithReduce(
-    [3, 3, 3, 3, 4, 3],
-    [1, 2, 4, 4, 3, 3],
-    [2, 3, 3, 4, 4],
-    [45, 3, 3, 5, 4, 4]
-  ) // output: [3,3,4]
-);
+exports.intersection = intersection;
 
 //possible part 2
 //
