@@ -34,16 +34,41 @@ exports.toPairs = toPairs;
 // .range
 // use: Useful for quickly iterating over a range of numbers or letters without having to create array
 // example: quickly create a range of numbers to shuffle through
+const range = (start, fin) => {
+  let rangeArray = [];
+  while (fin >= start) {
+    rangeArray.push(start);
+    start += 1;
+  }
+  return rangeArray;
+};
+// console.log(range(1, 9));
 
-//
+exports.range = range;
+
 // .shuffle
+const shuffle = () => {
+  // fisher yates
+};
 // example
 // isEven = (n) => n % 2;
 
 // .union first show solution with array and .includes then optimize with new Set() -> .add array elements one at a time and check with .has
 // take n number of arrays and creates an array of unique values
 // use: useful for taking multiple arrays and spreading into one array of unique values
+const union = (...arrays) => {
+  let set = new Set(); // Sets maintain uniqueness and are optimized for lookups
+  for (let array of arrays) {
+    for (let element of array) {
+      if (!set.has(element)) {
+        set.add(element);
+      }
+    }
+  }
+  return set;
+};
 
+console.log(union([1, 2, 4], [1, 2, 4, 5], [1, 45]));
 //.intersection find the values present in every array evaluated
 // use: Useful for confirming all arrays contain a certain element.
 
@@ -69,7 +94,7 @@ const intersectionWithReduce = (...arrays) => {
 
 const intersection = (...arrays) => {
   // using rest operator to accept all arguments and contain in array
-  console.log(arrays);
+  // console.log(arrays);
   const reducer = (accumulator, currentArray) => {
     return currentArray.filter((currentArrayItem) => {
       if (accumulator.includes(currentArrayItem)) {
