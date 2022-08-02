@@ -33,13 +33,35 @@ let sortedRevenueObject = sortUserRevenue(userRevenue);
 console.log(sortedRevenueObject);
 
 // example (after 3,4): create range of numbers -> shuffle -> return number;
+function shuffleArray(begin, end) {
+  return _.shuffle(_.range(begin, end));
+}
+
+function returnShuffledCard() {
+  let shuffledCards = shuffleArray(1, 42);
+  function nextCard() {
+    return shuffledCards.length ? shuffledCards.unshift() : null;
+  }
+
+  return nextCard;
+}
 // example (after 6) Which students were present every day this week? Check the intersection of daily attendance.
 // show with and without closure cache
 
 function perfectAttendance(student, ...allAttendance) {
   // using rest operator to accept all arguments and contain in array
   let perfectAttendance = _.intersection(allAttendance); // using spread operator to remove container array and pass all arrays of attendance as arguments to intersection
-  console.log(perfectAttendance);
+  return perfectAttendance.includes(student);
+}
+
+function perfectAttendanceWithCache(...allAttendance) {
+  let cacheAttendance = _.intersection(allAttendance); // using spread operator to remove container array and pass all arrays of attendance as arguments to intersection
+
+  function perfectCheck(student) {
+    return cacheAttendance.includes(student);
+  }
+
+  return perfectCheck;
 }
 
 perfectAttendance(
