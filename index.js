@@ -47,9 +47,21 @@ const range = (start, fin) => {
 exports.range = range;
 
 // .shuffle
-const shuffle = () => {
-  // fisher yates
+const badShuffle = () => {
+  // naive approach
 };
+const shuffle = (arr) => {
+  // fisher yates
+  let current = arr.length;
+  while (current) {
+    let random = Math.floor(Math.random() * current--); // selects a random remaining index
+    [arr[random], arr[current]] = [arr[current], arr[random]]; // takes the random element and swaps it with the current element (swaps from front to back of array)
+  }
+
+  return arr;
+};
+
+console.log(shuffle(range(1, 9)));
 // example
 // isEven = (n) => n % 2;
 
@@ -67,6 +79,8 @@ const union = (...arrays) => {
   }
   return set;
 };
+
+exports.union = union;
 
 console.log(union([1, 2, 4], [1, 2, 4, 5], [1, 45]));
 //.intersection find the values present in every array evaluated
