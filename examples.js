@@ -20,6 +20,28 @@ let userRevenue = {
   aprilBalance: 700,
 };
 
+// example during(1)
+
+// scores = [['Katy', 86],['Mac', 90],['Anty', 79],['Matt', 90]]
+
+let findScore = (array, person) => {
+  //
+  for (let i = 0; i < array.length; i++) {
+    if (array[i][0] === person) {
+      return array[i][1];
+    }
+  }
+  return -1;
+};
+
+let quickFindScore = (array) => {
+  let lookupObject = _.fromPairs(array);
+
+  return function find(person) {
+    lookupObject[person] ? lookupObject[person] : -1;
+  };
+};
+
 // example after(1,2) : take a revenue  object -> convert to array(toPairs) -> sort in ascending order -> convert back to object(fromPairs) of sorted revenues
 let sortUserRevenue = (userObject) => {
   let convertedArray = _.toPairs(userObject); // convert object to array of arrays
@@ -79,3 +101,7 @@ console.log(
     [45, 3, 3, 5, 4, 4]
   ) // output: [3,3,4]
 );
+
+const howLongTillAllNumbers = () => {
+  _.union;
+};
